@@ -1,18 +1,18 @@
-# TypeScript project with Tests
+# Mars Rover TypeScript project with Tests
 
-This repository can be used as a template for creating a TypeScript project using Jest for testing.
+- To create a program to move rovers around the surface of Mars!
+- The surface of Mars is represented by a Plateau.(Rectangle/Square Grid)
 
-## Instructions
+## Breaking into simple steps and implementing RED-GREEN-REFACTOR methodology
 
-- Click the "Use this template" button
+- Create a grid with given x and y coordinates
 
-- Click "Create new repository"
+- Check for the rover is positioned within the bounds of the plateau.
 
-- Give your repository a name and click "Create repository from template"
+- define functions for rover movement : Left, Right, Forward
 
-- Clone down your new repository to your computer
+- If success, function to take input for the rover for its position(coordinates) and direction (N,E,S,W)
 
-- Navigate to the directory on your command line
+- Hoping to reach this step without any issues/failing tests
 
-- Run `npm install` followed by `npm test` to run the tests
-
+- Great!! Good attempt, keep up the work and spirit to achieve the result.
