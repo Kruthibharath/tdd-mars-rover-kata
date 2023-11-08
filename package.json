@@ -2,10 +2,10 @@
   "name": "ts-template-with-jest-tests",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "rover.ts",
   "scripts": {
     "build": "tsc  --project tsconfig.build.json",
-    "start": "nodemon src/index.ts",
+    "start": "nodemon src/rover.ts",
     "test": "jest --watch"
   },
   "keywords": [],
