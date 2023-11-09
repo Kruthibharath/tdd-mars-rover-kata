@@ -1,8 +1,10 @@
-import { createGrid } from "../plateaus/plateau";
+import { createGrid, coordinates } from "../plateaus/plateau";
 
-type coordinates = { x: number; y: number };
+//type coordinates = { x: number; y: number };
 
 type directions = "N" | "S" | "E" | "W";
+
+export type roverPosition = { position: coordinates; direction: directions };
 
 /* Input for the function: 
    plateauSize : 5 5
@@ -15,7 +17,7 @@ export function moveRoverInstructions(
   initialCoordinates: coordinates,
   initialDirection: directions,
   instructions: string //LMLMLMLMM
-) {
+): roverPosition {
   let roverCoordinates: coordinates = initialCoordinates; //1,2
   let roverDirection: directions = initialDirection; //N
 
@@ -86,5 +88,5 @@ export function moveRoverInstructions(
   roverCoordinates.x = Math.max(0, Math.min(roverCoordinates.x, plateauSize.x));
   roverCoordinates.y = Math.max(0, Math.min(roverCoordinates.y, plateauSize.y));
 
-  return roverCoordinates;
+  return { position: roverCoordinates, direction: roverDirection };
 }
