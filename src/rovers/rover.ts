@@ -1,5 +1,7 @@
 //import { createGrid } from "../plateaus/plateau";
 
+type coordinates = { x: number; y: number };
+
 type directions = "N" | "S" | "E" | "W";
 
 export function turnLeft(direction: directions): directions {
@@ -28,5 +30,22 @@ export function turnRight(direction: directions): directions {
       return "S";
     default:
       return direction;
+  }
+}
+export function moveForward(
+  point: coordinates,
+  direction: directions
+): coordinates {
+  switch (direction) {
+    case "N":
+      return { x: point.x, y: point.y + 1 };
+    case "S":
+      return { x: point.x, y: point.y - 1 };
+    case "E":
+      return { x: point.x + 1, y: point.y };
+    case "W":
+      return { x: point.x - 1, y: point.y };
+    default:
+      return point;
   }
 }

@@ -1,5 +1,5 @@
 import { createGrid, isWithInGrid } from "../plateaus/plateau";
-import { turnLeft, turnRight } from "../rovers/rover";
+import { moveForward, turnLeft, turnRight } from "../rovers/rover";
 describe("create a grid with given width and height", () => {
   test("should return { x: 5, y: 5 } for createGrid(5, 5)", () => {
     const grid = createGrid(5, 5);
@@ -40,5 +40,20 @@ describe("turnRight", () => {
     expect(turnRight("W")).toBe("N");
     expect(turnRight("S")).toBe("W");
     expect(turnRight("E")).toBe("S");
+  });
+});
+
+describe("moveForward", () => {
+  test("rover should move in the right direction for the given coordinate", () => {
+    const point = { x: 1, y: 2 };
+    expect(moveForward(point, "E")).toEqual({ x: 2, y: 2 });
+  });
+  test("rover should move in the right direction for the given coordinate", () => {
+    const point = { x: 3, y: 2 };
+    expect(moveForward(point, "W")).toEqual({ x: 2, y: 2 });
+  });
+  test("rover should move in the right direction for the given coordinate", () => {
+    const point = { x: 0, y: 0 };
+    expect(moveForward(point, "N")).toEqual({ x: 0, y: 1 });
   });
 });
