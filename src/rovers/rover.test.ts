@@ -1,5 +1,5 @@
 import { createGrid, isWithInGrid } from "../plateaus/plateau";
-import { moveForward, turnLeft, turnRight } from "../rovers/rover";
+import { moveRoverInstructions } from "../rovers/rover";
 describe("create a grid with given width and height", () => {
   test("should return { x: 5, y: 5 } for createGrid(5, 5)", () => {
     const grid = createGrid(5, 5);
@@ -25,35 +25,47 @@ describe("isWithInGrid", () => {
   });
 });
 
-describe("turnLeft", () => {
-  test("rover should turn left correctly for the given coordinate", () => {
-    expect(turnLeft("N")).toBe("W");
-    expect(turnLeft("W")).toBe("S");
-    expect(turnLeft("S")).toBe("E");
-    expect(turnLeft("E")).toBe("N");
+describe("moveRoverInstructions", () => {
+  test("should move the rover correctly with given instructions", () => {
+    const plateauSize = { x: 5, y: 5 };
+    const initialPosition1 = { x: 1, y: 2 };
+    const initialDirection1 = "N";
+    const instructions1 = "LMLMLMLMM";
+    expect(
+      moveRoverInstructions(
+        plateauSize,
+        initialPosition1,
+        initialDirection1,
+        instructions1
+      )
+    ).toEqual({ x: 1, y: 3 });
   });
-});
-
-describe("turnRight", () => {
-  test("rover should turn right correctly for the given coordinate", () => {
-    expect(turnRight("N")).toBe("E");
-    expect(turnRight("W")).toBe("N");
-    expect(turnRight("S")).toBe("W");
-    expect(turnRight("E")).toBe("S");
+  test("should move the rover correctly with given instructions", () => {
+    const plateauSize = { x: 5, y: 5 };
+    const initialPosition2 = { x: 3, y: 3 };
+    const initialDirection2 = "E";
+    const instructions2 = "MMRMMRMRRM";
+    expect(
+      moveRoverInstructions(
+        plateauSize,
+        initialPosition2,
+        initialDirection2,
+        instructions2
+      )
+    ).toEqual({ x: 5, y: 1 });
   });
-});
-
-describe("moveForward", () => {
-  test("rover should move in the right direction for the given coordinate", () => {
-    const point = { x: 1, y: 2 };
-    expect(moveForward(point, "E")).toEqual({ x: 2, y: 2 });
-  });
-  test("rover should move in the right direction for the given coordinate", () => {
-    const point = { x: 3, y: 2 };
-    expect(moveForward(point, "W")).toEqual({ x: 2, y: 2 });
-  });
-  test("rover should move in the right direction for the given coordinate", () => {
-    const point = { x: 0, y: 0 };
-    expect(moveForward(point, "N")).toEqual({ x: 0, y: 1 });
+  test("should rover handle the invlaid set of given instructions", () => {
+    const plateauSize = { x: 5, y: 5 };
+    const initialPosition2 = { x: 1, y: 3 };
+    const initialDirection2 = "E";
+    const instructions2 = "ABCXYZ";
+    expect(
+      moveRoverInstructions(
+        plateauSize,
+        initialPosition2,
+        initialDirection2,
+        instructions2
+      )
+    ).toEqual({ x: 1, y: 3 });
   });
 });

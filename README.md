@@ -11,6 +11,8 @@
 
 - define functions for rover movement : Left, Right, Forward
 
+- define function for the take the specific input instruction for the rover movement
+
 - If success, function to take input for the rover for its position(coordinates) and direction (N,E,S,W)
 
 - Hoping to reach this step without any issues/failing tests
