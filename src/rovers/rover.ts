@@ -1,8 +1,7 @@
-import { createGrid, coordinates } from "../plateaus/plateau";
+import { coordinates } from "../plateaus/plateau";
+import { directions } from "../types/direction.types";
 
-//type coordinates = { x: number; y: number };
-
-type directions = "N" | "S" | "E" | "W";
+//type directions = "N" | "S" | "E" | "W";
 
 export type roverPosition = { position: coordinates; direction: directions };
 
